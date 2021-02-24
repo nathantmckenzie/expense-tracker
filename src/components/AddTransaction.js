@@ -36,7 +36,8 @@ export default function AddTransaction({
       },
     ]);
     setBalance([...balance, transactionType === "income" ? amount : -amount]);
-    console.log("balance", balance);
+    setInput("");
+    setAmount(0);
   }
 
   function changeTransactionType(evt) {

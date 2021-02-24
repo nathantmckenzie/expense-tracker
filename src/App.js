@@ -10,11 +10,18 @@ function App() {
   const [transactions, setTransactions] = useState([]);
   const [transactionType, setTransactionType] = useState("income");
   const [balance, setBalance] = useState([]);
+  const [final, setFinal] = useState(0);
 
   return (
     <div className="title">
       Expense Tracker{" "}
-      <Balance balance={balance} setBalance={setBalance} amount={amount} />
+      <Balance
+        balance={balance}
+        setBalance={setBalance}
+        amount={amount}
+        final={final}
+        setFinal={setFinal}
+      />
       <Transaction
         transactions={transactions}
         setTransactions={setTransactions}
