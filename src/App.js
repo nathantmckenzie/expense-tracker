@@ -6,20 +6,30 @@ import { useState } from "react";
 
 function App() {
   const [input, setInput] = useState("");
+  const [amount, setAmount] = useState("0");
   const [transactions, setTransactions] = useState([]);
+  const [transactionType, setTransactionType] = useState("income");
+  const [balance, setBalance] = useState(0);
 
   return (
     <div className="title">
-      Expense Tracker <Balance />
+      Expense Tracker{" "}
+      <Balance balance={balance} setBalance={setBalance} amount={amount} />
       <Transaction
         transactions={transactions}
         setTransactions={setTransactions}
+        transactionType={transactionType}
+        setTransactionType={setTransactionType}
       />
       <AddTransaction
         input={input}
         setInput={setInput}
         transactions={transactions}
         setTransactions={setTransactions}
+        amount={amount}
+        setAmount={setAmount}
+        transactionType={transactionType}
+        setTransactionType={setTransactionType}
       />
     </div>
   );

@@ -11,17 +11,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields({ input, setInput }) {
+export default function BasicTextFields({
+  input,
+  setInput,
+  amount,
+  setAmount,
+}) {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
+        label="item"
         id="standard-basic"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <TextField id="standard-basic" />
+      <TextField
+        label="amount"
+        type="number"
+        id="standard-basic"
+        value={amount}
+        onChange={(e) =>
+          setAmount(e.target.value === 0 ? 0 : parseInt(e.target.value, 10))
+        }
+      />
     </form>
   );
 }
