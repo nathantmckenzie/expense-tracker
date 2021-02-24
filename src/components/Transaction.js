@@ -19,7 +19,15 @@ export default function Transaction({
               {transaction.transactionType}
             </li>
 
-            <button>delete</button>
+            <button
+              onClick={() =>
+                setTransactions(
+                  transactions.filter((el) => el.id !== transaction.id)
+                )
+              }
+            >
+              delete
+            </button>
           </>
         );
       })}

@@ -33,13 +33,13 @@ export default function AddTransaction({
         input: input,
         amount: amount,
         transactionType: transactionType,
+        id: Math.random() * 1000,
       },
     ]);
     setBalance([...balance, transactionType === "income" ? amount : -amount]);
     setInput("");
     setAmount(0);
   }
-
   function changeTransactionType(evt) {
     if (evt.target.value === "income") {
       setTransactionType("income");
@@ -73,6 +73,7 @@ export default function AddTransaction({
         <Button variant="contained" color="primary" onClick={submitHandler}>
           Add
         </Button>
+        {console.log("TRANSACTIONS", transactions)}
       </div>
     </div>
   );
