@@ -1,5 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin: 50px;
+  background-color: #f7f7f7;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.transaction {
+  margin: 60px auto;
+  width: 350px;
+  font-size: 20px;
+  overflow: scroll;
+  height: 300px;
+
+}
+
+
+.title {
+  width: 250px;
+  font-size: 30px;
+}
+
+.balance {
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
 }
