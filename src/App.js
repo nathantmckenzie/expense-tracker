@@ -9,7 +9,7 @@ function App() {
   const [amount, setAmount] = useState("0");
   const [transactions, setTransactions] = useState([]);
   const [transactionType, setTransactionType] = useState("income");
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState([]);
 
   return (
     <div className="title">
@@ -30,6 +30,8 @@ function App() {
         setAmount={setAmount}
         transactionType={transactionType}
         setTransactionType={setTransactionType}
+        balance={balance}
+        setBalance={setBalance}
       />
     </div>
   );

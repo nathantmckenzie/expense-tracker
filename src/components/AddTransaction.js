@@ -21,8 +21,22 @@ export default function AddTransaction({
   setAmount,
   transactionType,
   setTransactionType,
+  balance,
+  setBalance,
 }) {
   const classes = useStyles();
+
+  function submitHandler() {
+    setTransactions([
+      ...transactions,
+      {
+        input: input,
+        amount: amount,
+        transactionType: transactionType,
+      },
+    ]);
+    setBalance([...balance, amount]);
+  }
   return (
     <div>
       <h6>Add Transaction</h6>
@@ -37,23 +51,9 @@ export default function AddTransaction({
         <option value="expense">Expense</option>
       </select>
       <div className={classes.root}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() =>
-            setTransactions([
-              ...transactions,
-              {
-                input: input,
-                amount: amount,
-                transactionType: transactionType,
-              },
-            ])
-          }
-        >
+        <Button variant="contained" color="primary" onClick={submitHandler}>
           Add
         </Button>
-        {console.log(transactions)}
       </div>
     </div>
   );
