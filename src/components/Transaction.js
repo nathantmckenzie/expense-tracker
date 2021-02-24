@@ -12,7 +12,10 @@ export default function Transaction({
         return (
           <>
             <li key={index}>
-              {transaction.input} : ${transaction.amount}{" "}
+              {transaction.input} :
+              {transaction.transactionType === "income"
+                ? "$" + transaction.amount
+                : "-$" + transaction.amount}{" "}
               {transaction.transactionType}
             </li>
 

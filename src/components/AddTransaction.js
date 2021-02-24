@@ -35,8 +35,18 @@ export default function AddTransaction({
         transactionType: transactionType,
       },
     ]);
-    setBalance([...balance, amount]);
+    setBalance([...balance, transactionType === "income" ? amount : -amount]);
+    console.log("balance", balance);
   }
+
+  function changeTransactionType(evt) {
+    if (evt.target.value === "income") {
+      setTransactionType("income");
+    } else if (evt.target.value === "expense") {
+      setTransactionType("expense");
+    }
+  }
+
   return (
     <div>
       <h6>Add Transaction</h6>
@@ -46,9 +56,17 @@ export default function AddTransaction({
         amount={amount}
         setAmount={setAmount}
       />
-      <select name="transaction-type" id="cars">
-        <option value="income">Income</option>
-        <option value="expense">Expense</option>
+      <select
+        name="transaction-type"
+        id="cars"
+        onChange={changeTransactionType}
+      >
+        <option value="income" onClick={() => setTransactionType("income")}>
+          Income
+        </option>
+        <option value="expense" onClick={() => setTransactionType("expense")}>
+          Expense
+        </option>
       </select>
       <div className={classes.root}>
         <Button variant="contained" color="primary" onClick={submitHandler}>

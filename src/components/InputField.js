@@ -33,7 +33,8 @@ export default function BasicTextFields({
         id="standard-basic"
         value={amount}
         onChange={(e) =>
-          setAmount(e.target.value === 0 ? 0 : parseInt(e.target.value, 10))
+          //setAmount(e.target.value === 0 ? 0 : parseInt(e.target.value, 10))
+          setAmount(Number(e.target.value))
         }
       />
     </form>
